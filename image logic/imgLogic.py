@@ -16,7 +16,7 @@ rows , cols , channels = imgLogo.shape
 roi = img1[600:600+rows , 600:600+cols]
 img2gray = cv2.cvtColor(imgLogo , cv2.COLOR_BGR2GRAY)
 
-ret , mask = cv2.threshold(img2gray , 130 , 150 , cv2.THRESH_BINARY)
+ret , mask = cv2.threshold(img2gray , 130 , 255 , cv2.THRESH_BINARY)
 # cv2.imshow("masked" , mask)
 
 mask_inv = cv2.bitwise_not(mask)
