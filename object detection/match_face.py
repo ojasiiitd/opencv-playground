@@ -12,7 +12,7 @@ while True:
     grayFrame = cv2.cvtColor(frame , cv2.COLOR_BGR2GRAY)
     
     res = cv2.matchTemplate(grayFrame , face , cv2.TM_CCOEFF_NORMED)
-    thresh = 0.5
+    thresh = 0.3
     loc = np.where(res >= thresh)
 
     cnt = 0
