@@ -11,9 +11,9 @@ res = cv2.matchTemplate(img_gray , template , cv2.TM_CCOEFF_NORMED)
 thresh = 0.9
 loc = np.where(res >= thresh)
 
-# *zip ?!?
+# zip(*list) ?!?
 for pt in zip(*loc[::-1]):
-    cv2.rectangle(img_bgr , pt , (pt[0]+w , pt[1]+h) , (0,255,255) , 2)
+    cv2.rectangle(img_bgr , pt , (pt[0]+w , pt[1]+h) , (0,230,40) , 1)
 
 cv2.imshow("detected" , img_bgr)
 
