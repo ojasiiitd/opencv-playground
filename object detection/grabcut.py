@@ -17,9 +17,10 @@ cv2.grabCut(img , mask , rect , bgModel , fgModel , 5 , cv2.GC_INIT_WITH_RECT)
 mask2 = np.where((mask==2) | (mask==0) , 0 , 1).astype('uint8')
 img = img * mask2[:,:,np.newaxis]
 
-plt.imshow(img)
-plt.colorbar()
-plt.show()
+# plt.imshow(img)
+# plt.colorbar()
+# plt.show()
+cv2.imshow("grabbed" , img)
 
 cv2.waitKey(0)
 cv2.destroyAllWindows()
