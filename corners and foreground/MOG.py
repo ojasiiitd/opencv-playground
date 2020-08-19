@@ -3,15 +3,19 @@ import numpy as np
 
 cap = cv2.VideoCapture("people-walking.mp4")
 
-fgbg = cv2.createBackgroundSubtractorMOG2()
-# cv2.createBackgroundSubtractorKNN()
+fgbgKNN = cv2.createBackgroundSubtractorKNN()
+fgbgMOG = cv2.createBackgroundSubtractorMOG2()
 
 while True:
     _ , frame = cap.read()
-    fgmask = fgbg.apply(frame)
+    if not _ :
+        break
 
-    cv2.imshow("org" , frame)
-    cv2.imshow("fg" , fgmask)
+    fgmaskKNN = fgbgKNN.apply(frame)
+    fgmaskMOG = fgbgMOG.apply(frame)
+
+    cv2.imshow("KNN" , fgmaskKNN)
+    cv2.imshow("MOG" , fgmaskMOG)
 
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
