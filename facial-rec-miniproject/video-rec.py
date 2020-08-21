@@ -5,12 +5,18 @@ import numpy as np
 import face_recognition
 
 REC_DIR = "recognized/"
-TOLERANCE = 0.6
+TOLERANCE = 0.7
 MODEL = "hog"
 
 cap = cv2.VideoCapture(0)
 
 face_map = {}
+
+for name in os.listdir(REC_DIR):
+    image = face_recognition.load_image_file(REC_DIR+name)
+    encoding = face_recognition.face_encodings(image)[0]
+    face_map[name] = encoding
+print("Sucessfully processed all known faces")
 
 while True:
     startFrame = time.time()
