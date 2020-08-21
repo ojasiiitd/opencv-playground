@@ -56,9 +56,6 @@ while True:
         face_map_encodings.append(face_enc[0])
         cv2.imwrite(REC_DIR + newName + ".jpg" , frame[face_loc[0][0]-60:face_loc[0][2]+60 , face_loc[0][3]-60:face_loc[0][1]+60])
 
-    # cv2.rectangle(frame , top_left , bot_right , (0,255,0) , 3)
-    # cv2.imshow("the Face" , frame[face_loc[0][0]-60:face_loc[0][2]+60 , face_loc[0][3]-60:face_loc[0][1]+60])
-
     print("Time taken per frame:" , str(time.time() - startFrame))
 
     if cv2.waitKey(1) & 0xFF == ord('q'):
